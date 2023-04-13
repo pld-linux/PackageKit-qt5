@@ -1,6 +1,6 @@
-Summary:	packagekit-qt2 library
-Summary(pl.UTF-8):	Biblioteka packagekit-qt2
-Name:		PackageKit-qt2
+Summary:	packagekit-qt5 library
+Summary(pl.UTF-8):	Biblioteka packagekit-qt5
+Name:		PackageKit-qt5
 Version:	0.9.6
 Release:	1
 License:	LGPL v2+
@@ -22,14 +22,14 @@ Requires:	Qt5Xml >= 5.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-packagekit-qt2 library.
+packagekit-qt5 library.
 
 %description -l pl.UTF-8
-Biblioteka packagekit-qt2.
+Biblioteka packagekit-qt5.
 
 %package devel
-Summary:	Header files for packagekit-qt2 library
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki packagekit-qt2
+Summary:	Header files for packagekit-qt5 library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki packagekit-qt5
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5Core-devel >= 5.6.0
@@ -37,10 +37,10 @@ Requires:	Qt5DBus-devel >= 5.6.0
 Requires:	Qt5Xml-devel >= 5.6.0
 
 %description devel
-Header files for packagekit-qt2 library.
+Header files for packagekit-qt5 library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki packagekit-qt2.
+Pliki nagłówkowe biblioteki packagekit-qt5.
 
 %prep
 %setup -q -n PackageKit-Qt-%{version}
