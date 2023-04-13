@@ -1,24 +1,25 @@
+# TODO: qt6 variant (-DBUILD_WITH_QT6=ON)
 Summary:	packagekit-qt5 library
 Summary(pl.UTF-8):	Biblioteka packagekit-qt5
 Name:		PackageKit-qt5
-Version:	0.9.6
+Version:	1.1.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	https://www.freedesktop.org/software/PackageKit/releases/PackageKit-Qt-%{version}.tar.xz
-# Source0-md5:	4369fcce287740191a1479c5ce403422
-URL:		https://www.packagekit.org/
+# Source0-md5:	f0dc0e54a8eb84e418242c7678e905f7
+URL:		https://www.freedesktop.org/software/PackageKit/
 BuildRequires:	PackageKit-devel >= 0.8.11
-BuildRequires:	Qt5Core-devel >= 5.6.0
-BuildRequires:	Qt5DBus-devel >= 5.6.0
-BuildRequires:	Qt5Xml-devel >= 5.6.0
-BuildRequires:	cmake >= 2.8.6
+BuildRequires:	Qt5Core-devel >= 5.10.0
+BuildRequires:	Qt5DBus-devel >= 5.10.0
+BuildRequires:	Qt5Xml-devel >= 5.10.0
+BuildRequires:	cmake >= 3.2
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	pkgconfig
-BuildRequires:	qt5-build >= 5.6.0
-Requires:	Qt5Core >= 5.6.0
-Requires:	Qt5DBus >= 5.6.0
-Requires:	Qt5Xml >= 5.6.0
+BuildRequires:	qt5-build >= 5.10.0
+Requires:	Qt5Core >= 5.10.0
+Requires:	Qt5DBus >= 5.10.0
+Requires:	Qt5Xml >= 5.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,9 +33,9 @@ Summary:	Header files for packagekit-qt5 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki packagekit-qt5
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt5Core-devel >= 5.6.0
-Requires:	Qt5DBus-devel >= 5.6.0
-Requires:	Qt5Xml-devel >= 5.6.0
+Requires:	Qt5Core-devel >= 5.10.0
+Requires:	Qt5DBus-devel >= 5.10.0
+Requires:	Qt5Xml-devel >= 5.10.0
 
 %description devel
 Header files for packagekit-qt5 library.
@@ -68,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS MAINTAINERS NEWS README.md TODO
 %attr(755,root,root) %{_libdir}/libpackagekitqt5.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libpackagekitqt5.so.0
+%attr(755,root,root) %ghost %{_libdir}/libpackagekitqt5.so.1
 
 %files devel
 %defattr(644,root,root,755)
