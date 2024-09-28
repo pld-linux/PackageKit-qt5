@@ -6,15 +6,15 @@
 Summary:	Qt 5 bindings for PackageKit
 Summary(pl.UTF-8):	Wiązania Qt 5 do biblioteki PackageKit
 Name:		PackageKit-qt5
-Version:	1.1.1
+Version:	1.1.2
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	https://www.freedesktop.org/software/PackageKit/releases/PackageKit-Qt-%{version}.tar.xz
-# Source0-md5:	f0dc0e54a8eb84e418242c7678e905f7
+# Source0-md5:	1c51c24a1f7ebdad515bb7f77f55a138
 URL:		https://www.freedesktop.org/software/PackageKit/
 BuildRequires:	PackageKit-devel >= 0.8.11
-BuildRequires:	cmake >= 3.2
+BuildRequires:	cmake >= 3.6
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	pkgconfig
 %if %{with qt5}
