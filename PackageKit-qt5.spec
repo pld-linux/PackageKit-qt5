@@ -6,16 +6,17 @@
 Summary:	Qt 5 bindings for PackageKit
 Summary(pl.UTF-8):	Wiązania Qt 5 do biblioteki PackageKit
 Name:		PackageKit-qt5
-Version:	1.1.2
+# keep 1.1.3 here for Qt5 support
+Version:	1.1.3
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	https://www.freedesktop.org/software/PackageKit/releases/PackageKit-Qt-%{version}.tar.xz
-# Source0-md5:	1c51c24a1f7ebdad515bb7f77f55a138
+# Source0-md5:	f78b64b79afc5b12d4798ad6195d93bc
 URL:		https://www.freedesktop.org/software/PackageKit/
 BuildRequires:	PackageKit-devel >= 0.8.11
-BuildRequires:	cmake >= 3.6
-BuildRequires:	libstdc++-devel >= 6:4.7
+BuildRequires:	cmake >= 3.16
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	pkgconfig
 %if %{with qt5}
 BuildRequires:	Qt5Core-devel >= 5.10.0
@@ -83,22 +84,16 @@ Pliki nagłówkowe biblioteki packagekit-qt6.
 
 %build
 %if %{with qt5}
-install -d build-qt5
-cd build-qt5
-%cmake ..
+%cmake -B build-qt5 \
+	-DBUILD_WITH_QT5=ON
 
-%{__make}
-cd ..
+%{__make} -C build-qt5
 %endif
 
 %if %{with qt6}
-install -d build-qt6
-cd build-qt6
-%cmake .. \
-	-DBUILD_WITH_QT6=ON
+%cmake -B build-qt6
 
-%{__make}
-cd ..
+%{__make} -C build-qt6
 %endif
 
 %install
@@ -120,16 +115,19 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
+%post	-n PackageKit-qt6 -p /sbin/ldconfig
+%postun	-n PackageKit-qt6 -p /sbin/ldconfig
+
 %if %{with qt5}
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS MAINTAINERS NEWS README.md TODO
 %attr(755,root,root) %{_libdir}/libpackagekitqt5.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libpackagekitqt5.so.1
+%ghost %{_libdir}/libpackagekitqt5.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libpackagekitqt5.so
+%{_libdir}/libpackagekitqt5.so
 %{_pkgconfigdir}/packagekitqt5.pc
 %{_includedir}/packagekitqt5
 %{_libdir}/cmake/packagekitqt5
@@ -140,11 +138,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS MAINTAINERS NEWS README.md TODO
 %attr(755,root,root) %{_libdir}/libpackagekitqt6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libpackagekitqt6.so.1
+%ghost %{_libdir}/libpackagekitqt6.so.1
 
 %files -n PackageKit-qt6-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libpackagekitqt6.so
+%{_libdir}/libpackagekitqt6.so
 %{_pkgconfigdir}/packagekitqt6.pc
 %{_includedir}/packagekitqt6
 %{_libdir}/cmake/packagekitqt6
