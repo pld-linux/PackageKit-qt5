@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	qt5	# Qt5 library
-%bcond_without	qt6	# Qt6 library
+%bcond_with	qt6	# Qt6 library (see PackageKit-qt6.spec)
 
 Summary:	Qt 5 bindings for PackageKit
 Summary(pl.UTF-8):	Wiązania Qt 5 do biblioteki PackageKit
