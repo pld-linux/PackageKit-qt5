@@ -122,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS MAINTAINERS NEWS README.md TODO
-%attr(755,root,root) %{_libdir}/libpackagekitqt5.so.*.*.*
+%{_libdir}/libpackagekitqt5.so.*.*.*
 %ghost %{_libdir}/libpackagekitqt5.so.1
 
 %files devel
@@ -137,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n PackageKit-qt6
 %defattr(644,root,root,755)
 %doc AUTHORS MAINTAINERS NEWS README.md TODO
-%attr(755,root,root) %{_libdir}/libpackagekitqt6.so.*.*.*
+%{_libdir}/libpackagekitqt6.so.*.*.*
 %ghost %{_libdir}/libpackagekitqt6.so.1
 
 %files -n PackageKit-qt6-devel
