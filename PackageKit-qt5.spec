@@ -8,7 +8,7 @@ Summary(pl.UTF-8):	Wiązania Qt 5 do biblioteki PackageKit
 Name:		PackageKit-qt5
 # keep 1.1.3 here for Qt5 support
 Version:	1.1.3
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	https://www.freedesktop.org/software/PackageKit/releases/PackageKit-Qt-%{version}.tar.xz
